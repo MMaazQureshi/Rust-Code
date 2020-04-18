@@ -1,0 +1,14 @@
+build: cargo build --target thumbv7em-none-eabihf 
+(make sure to be in directory)
+---------------------------------------------------------
+openocd: openocd -f interface/stlink-v2-1.cfg -f target/stm32f3x.cfg
+-------------------------------------------------
+* launch gdb server for file in program folder : gdb-multiarch -q target/thumbv7em-none-eabihf/debug/led-roulette(program name)
+target remote :3333
+load
+-------------------------------------------------
+itm dump
+* create a file in /tmp (e.g:itm.txt)
+*itm -F -f itm.txt
+*after load in openoc run two extra command I.e
+

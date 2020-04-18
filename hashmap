@@ -1,0 +1,24 @@
+use std::collections::HashMap;
+
+let teams  = vec![String::from("Blue"), String::from("Yellow")];
+let initial_scores = vec![10, 50];
+
+let scores: HashMap<_, _> = teams.iter().zip(initial_scores.iter()).collect();//zip->mapps values
+//collect->tuns it into hashmap
+The type annotation HashMap<_, _> is needed here because it’s possible to collect into many different data structures and Rust doesn’t know which you want unless you specify. For the parameters for the key and value types, however, we use underscores, and Rust can infer the types that the hash map contains based on the types of the data in the vectors.
+let mut scores = HashMap::new();
+
+scores.insert(String::from("Blue"), 10);
+scores.insert(String::from("Blue"), 25);
+
+println!("{:?}", scores);
+
+Listing 8-24: Replacing a value stored with a particular key
+
+This code will print {"Blue": 25}.
+scores.entry(String::from("Yellow")).or_insert(50);
+scores.entry(String::from("Blue")).or_insert(50);
+
+println!("{:?}", scores);
+
+Listing 8-25: Using the entry method to only insert if the key does not already have a value

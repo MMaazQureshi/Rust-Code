@@ -1,0 +1,13 @@
+Instead of continuing to follow the same file-naming pattern we used
+previously, we can do what the note suggests:
+1.
+2.
+3.
+Make a new directory named network, the parent module’s name.
+Move the src/network.rs file into the new network directory and rename it
+src/network/mod.rs.
+Move the submodule file src/server.rs into the network directory.
+Here are commands to carry out these steps:
+$ mkdir src/network
+$ mv src/network.rs src/network/mod.rs
+$ mv src/server.rs src/network
